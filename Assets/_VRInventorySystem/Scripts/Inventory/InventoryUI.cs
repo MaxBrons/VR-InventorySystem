@@ -25,12 +25,11 @@ public class InventoryUI : MonoBehaviour
 
         _slots = _parent.GetComponentsInChildren<InventorySlot>();
         UpdateUI();
-
     }
 
     private void UpdateUI() {
         for (int i = 0; i < _slots.Length; i++) {
-            if(i < _inventory.Items.Count) {
+            if (i < _inventory.Items.Count) {
                 _slots[i].AddItem(_inventory.Items[i]);
                 continue;
             }

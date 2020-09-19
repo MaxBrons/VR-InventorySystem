@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
-    [SerializeField] private Image _background;
     [SerializeField] private Image _itemIcon;
     [SerializeField] private Text _itemAmount;
     [SerializeField] private Button _itemButton;
@@ -15,20 +14,20 @@ public class InventorySlot : MonoBehaviour
 
     public void AddItem(Item item) {
         _item = item;
-        _itemIcon.sprite = item.Icon;
-        _itemButton.enabled = true;
+        if (_itemIcon) _itemIcon.sprite = item.Icon;
+        if (_itemButton) _itemButton.enabled = true;
 
-        _itemAmount.enabled = true;
-        _removeButton.interactable = true;
+        if (_itemAmount) _itemAmount.enabled = true;
+        if (_removeButton) _removeButton.interactable = true;
     }
 
     public void RemoveItem() {
         _item = null;
-        _itemIcon.sprite = null;
-        _itemButton.enabled = false;
+        if (_itemIcon) _itemIcon.sprite = null;
+        if (_itemButton) _itemButton.enabled = false;
 
-        _itemAmount.enabled = false;
-        _removeButton.interactable = false;
+        if (_itemAmount) _itemAmount.enabled = false;
+        if (_removeButton) _removeButton.interactable = false;
     }
 
     public void OnRemoveButtonPressed() {

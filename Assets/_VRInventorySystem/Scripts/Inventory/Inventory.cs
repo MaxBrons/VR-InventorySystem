@@ -11,13 +11,12 @@ public class Inventory : MonoBehaviour
     [SerializeField] private int _amountOfSlots = 6;
 
     private void Awake() {
-        Instance = Instance ? Instance : this;
+        Instance = this;
     }
 
     public void Add(Item item) {
         if(Items.Count >= _amountOfSlots) {
             print("Not Enough Room");
-            Instantiate(item);
             return;
         }
         Items.Add(item);
@@ -30,5 +29,6 @@ public class Inventory : MonoBehaviour
             print("Removed the item");
         }
         OnInventoryChange?.Invoke();
+        Debug.Log(item.Name);
     }
 }
