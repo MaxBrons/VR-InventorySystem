@@ -7,12 +7,18 @@ public class CheckForInputType : MonoBehaviour
 {
     [SerializeField] private GameObject _PCInventory;
     [SerializeField] private GameObject _VRInventory;
+    [SerializeField] private GameObject _player;
+    [SerializeField] private Camera _normalCam;
     
     private void Start() {
         if (SteamVR.active) {
+            _player.SetActive(true);
+            _normalCam.gameObject.SetActive(false);
             Destroy(_PCInventory);
             return;
         }
-        Destroy(_VRInventory);
+        _player.SetActive(false);
+        _normalCam.gameObject.SetActive(true);
+        Destroy(_VRInventory.gameObject);
     }
 }

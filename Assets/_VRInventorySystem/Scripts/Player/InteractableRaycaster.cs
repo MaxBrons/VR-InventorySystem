@@ -14,7 +14,6 @@ public class InteractableRaycaster : MonoBehaviour
         RaycastHit hit;
         Debug.DrawRay(ray.origin, ray.direction, Color.red, 20f, true);
         if (Physics.Raycast(ray, out hit)) {
-            Debug.Log(hit.transform.name);
             Transform selection = hit.transform;
             IInteractable selectionItem = selection.GetComponent<IInteractable>();
             if (selectionItem != null) {

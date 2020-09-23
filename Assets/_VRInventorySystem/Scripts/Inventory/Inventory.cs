@@ -2,13 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance;
     public event Action OnInventoryChange;
     public List<Item> Items { get; private set; } = new List<Item>();
+
     [SerializeField] private int _amountOfSlots = 6;
+    private Text IventoryItemText;
 
     private void Awake() {
         Instance = this;
@@ -30,5 +33,10 @@ public class Inventory : MonoBehaviour
         }
         OnInventoryChange?.Invoke();
         Debug.Log(item.Name);
+    }
+
+    public void SetInvItemText(string content) => IventoryItemText.text = content;
+    public string GetInvItemText() {
+        return IventoryItemText.text;
     }
 }

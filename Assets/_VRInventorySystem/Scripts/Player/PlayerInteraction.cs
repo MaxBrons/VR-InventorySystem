@@ -14,7 +14,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Start() {
         _input.Player.Pickup.performed += ctx => 
-            InteractableRaycaster.Instance.TryPickUpItem(cam.ScreenPointToRay(Input.mousePosition));
+            InteractableRaycaster.Instance.TryPickUpItem(cam.ScreenPointToRay(Input.mousePosition + cam.transform.forward));
         _input.Player.Pickup.Enable();
     }
 }
