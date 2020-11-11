@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
     }
 
     public void Add(Item item) {
-        if(Items.Count >= _amountOfSlots) {
+        if (Items.Count >= _amountOfSlots) {
             print("Not Enough Room");
             return;
         }
@@ -32,7 +32,7 @@ public class Inventory : MonoBehaviour
             print("Removed the item");
         }
         OnInventoryChange?.Invoke();
-        Debug.Log(item.Name);
+        Debug.Log("Removed: " + item.Name);
     }
 
     public void SetInvItemText(string content) => IventoryItemText.text = content;

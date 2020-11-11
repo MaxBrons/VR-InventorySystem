@@ -36,7 +36,8 @@ public class InventorySlot : MonoBehaviour
 
     public void UseItem() {
         if (_item != null) {
-            _item.Use();
+            //_item.Use();
+            StartCoroutine(_item.ShowUsedText());
         }
     }
 }
